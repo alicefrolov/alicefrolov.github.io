@@ -1,82 +1,119 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alice Frolov - Биотехнолог</title>
+    <title>Alice Frolov | Biotechnology & Longevity Research</title>
     <style>
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #3498db;
+            --text-color: #333;
+            --bg-color: #f4f7f6;
+        }
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            max-width: 800px;
-            margin: 50px auto;
-            padding: 20px;
             line-height: 1.6;
-            color: #333;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 0;
         }
-        h1 {
-            color: #2c3e50;
-            border-bottom: 3px solid #3498db;
-            padding-bottom: 10px;
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            background: #fff;
+            padding: 40px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border-radius: 8px;
         }
-        h2 {
-            color: #34495e;
-            margin-top: 30px;
+        header {
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 20px;
+            margin-bottom: 30px;
         }
-        .emoji {
-            font-size: 1.2em;
-        }
-        a {
-            color: #3498db;
+        h1 { margin: 0; color: var(--primary-color); font-size: 2.5em; }
+        h2 { color: var(--accent-color); border-bottom: 1px solid #eee; padding-bottom: 5px; }
+        .subtitle { font-size: 1.2em; color: #666; font-style: italic; }
+        .section { margin-bottom: 30px; }
+        ul { list-style-type: square; }
+        .skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .contact-links a {
+            display: inline-block;
+            margin-right: 15px;
             text-decoration: none;
+            color: var(--accent-color);
+            font-weight: bold;
         }
-        a:hover {
-            text-decoration: underline;
-        }
-        .section {
-            margin: 20px 0;
-        }
+        .contact-links a:hover { text-decoration: underline; }
+        .location { font-size: 0.9em; color: #888; margin-top: 10px; }
     </style>
 </head>
 <body>
-    <h1>🧬 Alice Frolov</h1>
-    <h2>Биотехнолог | Longevity Research</h2>
-    
-    <div class="section">
-        <p><strong>🎯 О себе:</strong><br>
-        Будущий биотехнолог, изучаю молекулярную биологию и исследования старения. 
-        Переехала из Новосибирска в Буэнос-Айрес для учёбы в UBA.</p>
-    </div>
+
+<div class="container">
+    <header>
+        <h1>Alice Frolov</h1>
+        <div class="subtitle">Aspiring Biotechnologist | Longevity & Computational Biology</div>
+        <div class="location">Novosibirsk 🇷🇺 &rarr; Buenos Aires 🇦🇷</div>
+    </header>
 
     <div class="section">
-        <h2>🔬 Интересы</h2>
-        <ul>
-            <li>Клеточное старение (cellular senescence)</li>
-            <li>CRISPR редактирование генов</li>
-            <li>Эпигенетическое перепрограммирование</li>
-            <li>Биоинформатика</li>
-        </ul>
-    </div>
-
-    <div class="section">
-        <h2>📚 Сейчас изучаю</h2>
-        <ul>
-            <li>Молекулярная биология</li>
-            <li>Биохимия</li>
-            <li>Python для биоинформатики</li>
-        </ul>
-    </div>
-
-    <div class="section">
-        <h2>🌍 Контакты</h2>
+        <h2>Executive Summary</h2>
         <p>
-            <a href="https://github.com/alicefrolov">GitHub</a> | 
-            <a href="https://linkedin.com/in/yourprofile">LinkedIn</a> | 
-            <a href="https://orcid.org/your-orcid">ORCID</a>
+            Bridging the gap between <strong>Information Systems</strong> and <strong>Molecular Biology</strong>. 
+            Currently focused on building expertise in longevity research and cellular mechanisms of aging. 
+            Preparing for undergraduate studies in Biotechnology at the <strong>Universidad de Buenos Aires (UBA)</strong>.
         </p>
     </div>
 
     <div class="section">
-        <p><em>Novosibirsk 🇷🇺 → Buenos Aires 🇦🇷</em></p>
+        <h2>Research Interests</h2>
+        <ul>
+            <li><strong>Cellular Senescence:</strong> Investigating aging mechanisms at the molecular level.</li>
+            <li><strong>Genome Engineering:</strong> CRISPR/Cas9 applications for healthspan extension.</li>
+            <li><strong>Epigenetic Reprogramming:</strong> Reversing cellular aging clocks.</li>
+            <li><strong>Bioinformatics:</strong> AI-accelerated drug discovery and biological data analysis.</li>
+        </ul>
     </div>
+
+    <div class="section">
+        <h2>Technical & Scientific Skills</h2>
+        <div class="skills-grid">
+            <div>
+                <strong>Computational:</strong>
+                <ul>
+                    <li>Python (Pandas, Scikit-learn, Biopython)</li>
+                    <li>R (Statistical Analysis)</li>
+                    <li>Machine Learning Fundamentals</li>
+                </ul>
+            </div>
+            <div>
+                <strong>Scientific Focus:</strong>
+                <ul>
+                    <li>Molecular Biology & Biochemistry</li>
+                    <li>Genomics Data Visualization</li>
+                    <li>Public Biological Dataset Analysis</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Contact & Academic Profiles</h2>
+        <div class="contact-links">
+            <a href="https://github.com/ВАШ_НИК">GitHub</a>
+            <a href="https://orcid.org/ВАШ_ORCID">ORCID iD</a>
+            <a href="ВАША_ССЫЛКА_LINKEDIN">LinkedIn</a>
+        </div>
+    </div>
+
+    <footer>
+        <p style="font-size: 0.8em; text-align: center; color: #999; margin-top: 50px;">
+            &copy; 2026 Alice Frolov. Built with scientific precision.
+        </p>
+    </footer>
+</div>
+
 </body>
 </html>
