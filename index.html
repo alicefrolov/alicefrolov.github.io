@@ -1,24 +1,25 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alice Frolov | Aspiring Biotechnologist</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
         :root {
             --bg: #ffffff;
             --text: #1a1a1a;
             --accent: #0047ab;
             --accent-light: #e8eef7;
-            --border: #e1e1e1;
+            --border: #e0e2e6;
             --subtle: #f4f6f9;
             --muted: #6b7280;
         }
 
         * {
             box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
 
         body {
@@ -26,102 +27,107 @@
             background-color: var(--bg);
             color: var(--text);
             line-height: 1.7;
-            margin: 0;
-            padding: 0;
             font-weight: 300;
         }
 
-        .container {
+        /* ─────────────────────────── HERO ─────────────────────── */
+        .hero {
+            background: #111111;
+            color: #ffffff;
+            padding: 64px 32px 56px;
+        }
+
+        .hero-inner {
             max-width: 820px;
             margin: 0 auto;
-            padding: 70px 32px 40px;
-        }
-
-        /* ── Header ── */
-        header {
             display: flex;
-            align-items: flex-start;
+            align-items: center;
             gap: 44px;
-            margin-bottom: 52px;
-            padding-bottom: 36px;
-            border-bottom: 2px solid var(--text);
         }
 
-        .profile-photo {
-            width: 150px;
-            height: 150px;
+        .hero-photo {
+            width: 140px;
+            height: 140px;
             object-fit: cover;
-            border: 1px solid var(--border);
+            border-radius: 50%;
+            border: 3px solid #2a2a2a;
             flex-shrink: 0;
-            filter: grayscale(15%);
+            filter: grayscale(20%);
         }
 
-        .header-text h1 {
+        .hero-text h1 {
             font-family: 'Playfair Display', serif;
-            font-size: 2.4em;
-            margin: 0;
+            font-size: 2.5em;
             font-weight: 700;
             letter-spacing: -0.5px;
-            line-height: 1.2;
+            line-height: 1.15;
+            color: #ffffff;
         }
 
-        .tagline {
-            font-size: 1em;
-            color: var(--accent);
-            font-weight: 500;
+        .hero-tagline {
+            font-size: 0.95em;
+            color: #7a9fd4;
+            font-weight: 400;
+            margin-top: 10px;
+            letter-spacing: 0.3px;
+        }
+
+        .hero-location {
+            font-size: 0.82em;
+            color: #666;
             margin-top: 8px;
             letter-spacing: 0.2px;
         }
 
-        .location {
-            font-size: 0.85em;
-            color: var(--muted);
-            margin-top: 10px;
+        /* ─────────────────────── BODY ────────────────────────── */
+        .container {
+            max-width: 820px;
+            margin: 0 auto;
+            padding: 52px 32px 40px;
         }
 
-        /* ── Sections ── */
+        /* ── Section headings ── */
         h2 {
             font-family: 'Playfair Display', serif;
-            font-size: 1.15em;
+            font-size: 1.05em;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-top: 44px;
-            margin-bottom: 14px;
+            letter-spacing: 2.5px;
             color: var(--text);
             font-weight: 600;
             border-bottom: 1px solid var(--border);
             padding-bottom: 8px;
+            margin-bottom: 18px;
+            margin-top: 48px;
         }
 
-        .content-block {
-            margin-bottom: 8px;
+        .content-block:first-child h2 {
+            margin-top: 0;
         }
 
-        .content-block p {
+        /* ── Biography ── */
+        .bio-text {
+            font-size: 0.94em;
             color: #3a3a3a;
-            font-size: 0.95em;
-            margin: 0;
+            line-height: 1.8;
         }
 
         /* ── Two-column grid ── */
         .grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 48px;
+            gap: 52px;
         }
 
         /* ── Lists ── */
         .list-unstyled {
             list-style: none;
-            padding: 0;
-            margin: 0;
         }
 
         .list-unstyled li {
-            margin-bottom: 9px;
-            padding-left: 18px;
+            margin-bottom: 10px;
+            padding-left: 20px;
             position: relative;
-            font-size: 0.92em;
+            font-size: 0.9em;
             color: #3a3a3a;
         }
 
@@ -138,10 +144,10 @@
             color: var(--text);
         }
 
-        /* ── Writing section ── */
+        /* ── Writing ── */
         .writing-item {
-            margin-bottom: 14px;
-            padding-left: 18px;
+            margin-bottom: 16px;
+            padding-left: 20px;
             position: relative;
         }
 
@@ -154,7 +160,7 @@
         }
 
         .writing-item a {
-            font-size: 0.92em;
+            font-size: 0.9em;
             color: var(--accent);
             text-decoration: none;
             font-weight: 400;
@@ -168,111 +174,73 @@
 
         .writing-item .tag {
             display: inline-block;
-            margin-top: 3px;
-            font-size: 0.72em;
+            margin-top: 4px;
+            font-size: 0.7em;
             color: var(--muted);
             background: var(--accent-light);
-            padding: 2px 7px;
+            padding: 2px 8px;
             border-radius: 3px;
-            letter-spacing: 0.4px;
+            letter-spacing: 0.3px;
+            text-transform: uppercase;
         }
 
-        /* ── Keywords ── */
-        .keywords {
-            font-size: 0.82em;
-            color: var(--muted);
-            background: var(--subtle);
-            padding: 16px 18px;
-            border-radius: 4px;
-            font-style: italic;
-            line-height: 1.9;
+        /* ── Profiles ── */
+        .profiles-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px 40px;
         }
 
-        /* ── Education ── */
-        .edu-item {
-            margin-bottom: 18px;
-            padding-left: 18px;
-            position: relative;
+        .profile-row {
+            font-size: 0.88em;
+            color: #3a3a3a;
+            padding: 6px 0;
+            border-bottom: 1px solid var(--subtle);
         }
 
-        .edu-item::before {
-            content: "—";
-            position: absolute;
-            left: 0;
-            color: var(--accent);
-            font-weight: 500;
-            top: 0;
-        }
-
-        .edu-item .edu-title {
-            font-size: 0.92em;
-            font-weight: 500;
-            color: var(--text);
-        }
-
-        .edu-item .edu-place {
-            font-size: 0.84em;
-            color: var(--muted);
-            margin-top: 2px;
-        }
-
-        .edu-item .edu-dates {
-            font-size: 0.78em;
-            color: #9ca3af;
-            margin-top: 1px;
-            font-style: italic;
-        }
-
-        /* ── Identifiers ── */
-        .identifiers p {
-            font-size: 0.9em;
-            margin: 0;
-        }
-
-        .identifiers a {
+        .profile-row a {
             color: var(--accent);
             text-decoration: none;
             font-weight: 400;
             transition: color 0.2s;
         }
 
-        .identifiers a:hover {
+        .profile-row a:hover {
             color: #003580;
             text-decoration: underline;
         }
 
-        .identifiers .id-row {
-            font-size: 0.88em;
-            color: #3a3a3a;
-            margin-bottom: 6px;
+        .profile-row .label {
+            color: var(--muted);
+            font-size: 0.82em;
+            margin-left: 6px;
         }
 
-        .identifiers .note {
-            display: block;
-            margin-top: 10px;
+        .profiles-note {
+            margin-top: 14px;
             font-size: 0.78em;
             color: var(--muted);
             font-style: italic;
+            grid-column: 1 / -1;
         }
 
         /* ── Contact bar ── */
         .contact-bar {
             background: var(--text);
             color: white;
-            padding: 18px 24px;
-            margin-top: 54px;
+            padding: 20px 24px;
+            margin-top: 56px;
             display: flex;
             justify-content: center;
-            gap: 36px;
+            gap: 40px;
             flex-wrap: wrap;
-            border-radius: 0;
         }
 
         .contact-bar a {
-            color: #c8d0db;
-            font-size: 0.82em;
+            color: #8a95a5;
+            font-size: 0.78em;
             text-decoration: none;
-            letter-spacing: 0.5px;
+            letter-spacing: 1.2px;
             text-transform: uppercase;
             transition: color 0.2s;
             font-weight: 400;
@@ -285,56 +253,50 @@
         /* ── Footer ── */
         footer {
             text-align: center;
-            margin-top: 32px;
-            font-size: 0.75em;
+            margin-top: 28px;
+            font-size: 0.74em;
             color: #aaa;
             letter-spacing: 0.5px;
         }
 
         /* ── Responsive ── */
         @media (max-width: 600px) {
-            .container { padding: 48px 20px 32px; }
-            header { flex-direction: column; align-items: center; text-align: center; gap: 24px; }
+            .hero { padding: 48px 20px 44px; }
+            .hero-inner { flex-direction: column; text-align: center; gap: 20px; }
+            .hero-text h1 { font-size: 1.9em; }
+            .container { padding: 40px 20px 32px; }
             .grid { grid-template-columns: 1fr; gap: 0; }
-            h1 { font-size: 1.9em; }
+            .profiles-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
 
-<div class="container">
-
-    <!-- HEADER -->
-    <header>
-        <img src="profile.png" alt="Alice Frolov" class="profile-photo">
-        <div class="header-text">
+<!-- HERO -->
+<div class="hero">
+    <div class="hero-inner">
+        <img src="profile.png" alt="Alice Frolov" class="hero-photo">
+        <div class="hero-text">
             <h1>Alice Frolov</h1>
-            <div class="tagline">Aspiring Biotechnologist &amp; Pre-University Student</div>
-            <div class="location">Novosibirsk 🇷🇺 &rarr; Buenos Aires 🇦🇷 &nbsp;|&nbsp; Preparing for UBA</div>
+            <div class="hero-tagline">Aspiring Biotechnologist &amp; Pre-University Student</div>
+            <div class="hero-location">Novosibirsk 🇷🇺 &rarr; Buenos Aires 🇦🇷 &nbsp;|&nbsp; UBA</div>
         </div>
-    </header>
+    </div>
+</div>
+
+<!-- BODY -->
+<div class="container">
 
     <!-- BIOGRAPHY -->
     <div class="content-block">
         <h2>Biography</h2>
-        <p>
-            Currently completing a Spanish language course at Universidad de Buenos Aires (UBA) in preparation for undergraduate studies in Biotechnology. 
+        <p class="bio-text">
+            Currently studying Spanish at Universidad de Buenos Aires (UBA) in preparation for an undergraduate degree in Biotechnology.
             Developing foundational knowledge in molecular biology and longevity research, with a growing interest in computational biology and life-extension technologies.
         </p>
     </div>
 
-    <!-- EDUCATION -->
-    <div class="content-block">
-        <h2>Education</h2>
-
-        <div class="edu-item">
-            <div class="edu-title">Spanish Language Course</div>
-            <div class="edu-place">Universidad de Buenos Aires (UBA), Buenos Aires, Argentina</div>
-            <div class="edu-dates">September 2025 – present</div>
-        </div>
-    </div>
-
-    <!-- TWO COLUMNS: Interests + Skills -->
+    <!-- INTERESTS + SKILLS -->
     <div class="grid">
         <div class="content-block">
             <h2>Interests</h2>
@@ -357,16 +319,7 @@
         </div>
     </div>
 
-    <!-- CURRENT FOCUS -->
-    <div class="content-block">
-        <h2>Current Focus</h2>
-        <p>
-            Self-directed study in molecular biology and biochemistry while developing computational biology skills through analysis of public biological datasets. 
-            Preparing for undergraduate studies in Biotechnology at Universidad de Buenos Aires (UBA).
-        </p>
-    </div>
-
-    <!-- WRITING (was "Treatises") -->
+    <!-- SPECULATIVE WRITING -->
     <div class="content-block">
         <h2>Speculative Writing</h2>
 
@@ -396,38 +349,41 @@
         </div>
     </div>
 
-    <!-- IDENTIFIERS -->
-    <div class="content-block identifiers">
-        <h2>Profiles &amp; Documents</h2>
-
-        <div class="id-row"><a href="https://orcid.org/0009-0006-2567-1734">ORCID</a> — researcher identifier</div>
-        <div class="id-row"><a href="https://github.com/alicefrolov">GitHub</a> — code &amp; projects</div>
-        <div class="id-row"><a href="https://alicefrolov.notion.site/Academic-CV-2f1c243936d4804891f9ec4eef824d4c">Academic CV</a> — curriculum vitae</div>
-        <div class="id-row"><a href="https://alicefrolov.notion.site/Statement-of-Academic-Intent-2f2c243936d4803b8d7ad812cc7e6d73">Statement of Academic Intent</a></div>
-
-        <span class="note">Google Scholar profile will be added upon first publication.</span>
-    </div>
-
-    <!-- KEYWORDS -->
+    <!-- PROFILES & DOCUMENTS -->
     <div class="content-block">
-        <h2>Keywords</h2>
-        <div class="keywords">
-            Longevity Science, Biology of Aging, Cellular Senescence, Molecular Biology, Biotechnology, Bioinformatics, CRISPR Gene Editing, Cellular Reprogramming, Systems Biology, Computational Biology, Epigenetic Aging, AI in Drug Discovery
+        <h2>Profiles &amp; Documents</h2>
+        <div class="profiles-grid">
+            <div class="profile-row">
+                <a href="https://orcid.org/0009-0006-2567-1734">ORCID</a>
+                <span class="label">researcher identifier</span>
+            </div>
+            <div class="profile-row">
+                <a href="https://github.com/alicefrolov">GitHub</a>
+                <span class="label">code &amp; projects</span>
+            </div>
+            <div class="profile-row">
+                <a href="https://alicefrolov.notion.site/Academic-CV-2f1c243936d4804891f9ec4eef824d4c">Academic CV</a>
+                <span class="label">curriculum vitae</span>
+            </div>
+            <div class="profile-row">
+                <a href="https://alicefrolov.notion.site/Statement-of-Academic-Intent-2f2c243936d4803b8d7ad812cc7e6d73">Statement of Intent</a>
+                <span class="label">academic goals</span>
+            </div>
+            <div class="profiles-note">Google Scholar will be added upon first publication.</div>
         </div>
     </div>
 
-    <!-- CONTACT BAR -->
-    <div class="contact-bar">
-        <a href="https://www.linkedin.com/in/alice-frolov-ab11a0395">LinkedIn</a>
-        <a href="https://bsky.app/profile/alicefrolov.bsky.social">Bluesky</a>
-        <a href="https://www.youtube.com/alicefrolov">YouTube</a>
-        <a href="https://www.instagram.com/alicefrolov">Instagram</a>
-    </div>
-
-    <!-- FOOTER -->
-    <footer>A. Frolov | Digital Portfolio | 2026</footer>
-
 </div>
+
+<!-- CONTACT BAR -->
+<div class="contact-bar">
+    <a href="https://www.linkedin.com/in/alice-frolov-ab11a0395">LinkedIn</a>
+    <a href="https://bsky.app/profile/alicefrolov.bsky.social">Bluesky</a>
+    <a href="https://www.youtube.com/alicefrolov">YouTube</a>
+    <a href="https://www.instagram.com/alicefrolov">Instagram</a>
+</div>
+
+<footer>A. Frolov | Digital Portfolio | 2026</footer>
 
 </body>
 </html>
