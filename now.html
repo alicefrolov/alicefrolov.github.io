@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Now — Alice Frolov</title>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #fafaf8;
+            --bg-2: #f4f3f0;
+            --bg-card: #ffffff;
+            --text: #1a1916;
+            --text-muted: #6b6860;
+            --text-dim: #a09d98;
+            --accent-warm: #c97d4a;
+            --border: #e8e6e1;
+            --border-light: #f0ede8;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--text); line-height: 1.65; font-weight: 300; }
+
+        .hero { background: var(--bg-card); border-bottom: 1px solid var(--border); padding: 64px 32px 52px; }
+        .hero-inner { max-width: 860px; margin: 0 auto; display: flex; align-items: center; gap: 48px; }
+        .hero-photo { width: 116px; height: 116px; object-fit: cover; border-radius: 50%; border: 2px solid var(--border); flex-shrink: 0; filter: grayscale(15%); }
+        .hero-text h1 { font-size: 2.5em; font-weight: 600; letter-spacing: -1px; line-height: 1.1; }
+        .hero-tagline { font-size: 0.9em; color: var(--text-muted); margin-top: 10px; }
+        .hero-location { font-size: 0.76em; color: var(--text-dim); margin-top: 6px; font-family: 'DM Mono', monospace; }
+        .hero-socials { display: flex; gap: 6px; margin-top: 20px; flex-wrap: wrap; }
+        .hero-socials a { display: inline-flex; align-items: center; gap: 6px; color: var(--text-muted); text-decoration: none; font-size: 0.76em; font-family: 'DM Mono', monospace; padding: 5px 10px; border-radius: 20px; background: var(--bg-2); border: 1px solid var(--border); transition: color 0.18s, background 0.18s; }
+        .hero-socials a:hover { color: var(--text); background: var(--border); }
+        .hero-socials svg { width: 13px; height: 13px; fill: currentColor; }
+
+        .nav { background: rgba(255,255,255,0.92); border-bottom: 1px solid var(--border); padding: 0 32px; position: sticky; top: 0; z-index: 100; backdrop-filter: blur(8px); }
+        .nav-inner { max-width: 860px; margin: 0 auto; display: flex; }
+        .nav a { color: var(--text-muted); text-decoration: none; font-size: 0.78em; letter-spacing: 0.8px; text-transform: uppercase; font-weight: 500; padding: 16px 0; margin-right: 32px; border-bottom: 2px solid transparent; transition: color 0.18s, border-color 0.18s; font-family: 'DM Mono', monospace; }
+        .nav a:hover { color: var(--text); }
+        .nav a.active { color: var(--text); border-bottom-color: var(--accent-warm); }
+
+        .container { max-width: 680px; margin: 0 auto; padding: 64px 32px 80px; }
+
+        .page-title { font-size: 2em; font-weight: 600; letter-spacing: -0.5px; margin-bottom: 6px; }
+        .page-subtitle { font-size: 0.82em; color: var(--text-dim); font-family: 'DM Mono', monospace; margin-bottom: 48px; }
+        .page-subtitle a { color: var(--text-dim); text-decoration: none; border-bottom: 1px solid var(--border); transition: color 0.18s; }
+        .page-subtitle a:hover { color: var(--accent-warm); }
+
+        h2 { font-family: 'DM Mono', monospace; font-size: 0.67em; text-transform: uppercase; letter-spacing: 2.5px; color: var(--text-dim); font-weight: 400; margin-bottom: 16px; margin-top: 48px; }
+        .content-block:first-of-type h2 { margin-top: 0; }
+        .divider { width: 100%; height: 1px; background: var(--border); margin-bottom: 20px; }
+
+        p { font-size: 0.93em; color: #3d3b37; line-height: 1.88; margin-bottom: 14px; font-weight: 300; }
+
+        ul { list-style: none; }
+        ul li { margin-bottom: 11px; padding-left: 18px; position: relative; font-size: 0.88em; color: #4a4844; line-height: 1.6; }
+        ul li::before { content: "·"; position: absolute; left: 4px; color: var(--accent-warm); font-weight: 700; font-size: 1.2em; top: -1px; }
+
+        .updated { font-size: 0.72em; color: var(--text-dim); font-family: 'DM Mono', monospace; margin-top: 56px; padding-top: 20px; border-top: 1px solid var(--border); }
+
+        @media (max-width: 640px) {
+            .hero { padding: 48px 20px 40px; }
+            .hero-inner { flex-direction: column; gap: 24px; }
+            .hero-text h1 { font-size: 1.8em; }
+            .container { padding: 40px 20px 60px; }
+            .nav { padding: 0 20px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="hero">
+    <div class="hero-inner">
+        <img src="profile.png" alt="Alice Frolov" class="hero-photo">
+        <div class="hero-text">
+            <h1>Alice Frolov</h1>
+            <div class="hero-tagline">Pre-University Biotechnology Student · Aging & Longevity Research</div>
+            <div class="hero-location">Buenos Aires, Argentina</div>
+            <div class="hero-socials">
+                <a href="https://x.com/alicefrolov" target="_blank" rel="noopener">
+                    <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                    @alicefrolov
+                </a>
+                <a href="https://www.linkedin.com/in/alice-frolov-ab11a0395" target="_blank" rel="noopener">
+                    <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                    LinkedIn
+                </a>
+                <a href="https://github.com/alicefrolov" target="_blank" rel="noopener">
+                    <svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+                    GitHub
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="nav">
+    <div class="nav-inner">
+        <a href="index.html">About</a>
+        <a href="writing.html">Writing</a>
+        <a href="reading.html">Reading</a>
+        <a href="now.html" class="active">Now</a>
+    </div>
+</div>
+
+<div class="container">
+
+    <div class="page-title">Now</div>
+    <div class="page-subtitle">
+        A snapshot of what I'm focused on right now. 
+        Inspired by <a href="https://nownownow.com/about" target="_blank" rel="noopener">nownownow.com</a>. 
+        Updated monthly.
+    </div>
+
+    <div class="content-block">
+        <h2>Where I Am</h2>
+        <div class="divider"></div>
+        <p>Buenos Aires, Argentina. Still relatively new to the city — finding my rhythm, learning the streets, and getting comfortable studying in Spanish full-time.</p>
+    </div>
+
+    <div class="content-block">
+        <h2>Studying</h2>
+        <div class="divider"></div>
+        <p>Completing secondary education through adult school (2026–2028) — a requirement for UBA admission. Simultaneously taking Spanish language courses at UBA itself, which is both practical and a bit meta.</p>
+        <p>The core of my self-directed study right now is epigenetic clocks and Yamanaka factor reprogramming — the idea that you can partially reset a cell's biological age by expressing four specific transcription factors. It's one of the most exciting areas in longevity research and I'm working through the primary literature systematically.</p>
+    </div>
+
+    <div class="content-block">
+        <h2>Writing</h2>
+        <div class="divider"></div>
+        <ul>
+            <li>Vol. IV of the Molecular Mechanisms of Cellular Aging series — on therapeutic interventions</li>
+            <li>A longer essay on epigenetic reprogramming for Substack</li>
+            <li>Experimenting with shorter-form notes on Medium for broader audiences</li>
+        </ul>
+    </div>
+
+    <div class="content-block">
+        <h2>Reading</h2>
+        <div class="divider"></div>
+        <ul>
+            <li>Horvath & Raj (2018) — DNA methylation-based biomarkers and the epigenetic clock</li>
+            <li>Sinclair, <em>Lifespan</em> — revisiting with more context than I had the first time</li>
+            <li>Papers from the Conboy lab on heterochronic parabiosis</li>
+        </ul>
+        <p>Full reading log on the <a href="reading.html" style="color: var(--accent-warm); text-decoration: none; border-bottom: 1px solid #e8e6e1;">Reading page →</a></p>
+    </div>
+
+    <div class="content-block">
+        <h2>Building</h2>
+        <div class="divider"></div>
+        <ul>
+            <li>This website — slowly making it a real home on the internet</li>
+            <li>A Zenodo workflow for publishing study notes with proper DOIs</li>
+            <li>Daily habits: physiotherapy routine, consistent sleep, deliberate Spanish immersion</li>
+        </ul>
+    </div>
+
+    <div class="updated">Last updated: February 2026</div>
+
+</div>
+
+</body>
+</html>
