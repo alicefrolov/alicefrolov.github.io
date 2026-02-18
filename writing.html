@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Writing — Alice Frolov</title>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #fafaf8;
+            --bg-2: #f4f3f0;
+            --bg-card: #ffffff;
+            --text: #1a1916;
+            --text-muted: #6b6860;
+            --text-dim: #a09d98;
+            --accent-warm: #c97d4a;
+            --border: #e8e6e1;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--text); line-height: 1.65; font-weight: 300; }
+
+        .hero { background: var(--bg-card); border-bottom: 1px solid var(--border); padding: 64px 32px 52px; }
+        .hero-inner { max-width: 860px; margin: 0 auto; display: flex; align-items: center; gap: 48px; }
+        .hero-photo { width: 116px; height: 116px; object-fit: cover; border-radius: 50%; border: 2px solid var(--border); flex-shrink: 0; filter: grayscale(15%); }
+        .hero-text h1 { font-size: 2.5em; font-weight: 600; letter-spacing: -1px; line-height: 1.1; }
+        .hero-tagline { font-size: 0.9em; color: var(--text-muted); margin-top: 10px; }
+        .hero-location { font-size: 0.76em; color: var(--text-dim); margin-top: 6px; font-family: 'DM Mono', monospace; }
+        .hero-socials { display: flex; gap: 6px; margin-top: 20px; flex-wrap: wrap; }
+        .hero-socials a { display: inline-flex; align-items: center; gap: 6px; color: var(--text-muted); text-decoration: none; font-size: 0.76em; font-family: 'DM Mono', monospace; padding: 5px 10px; border-radius: 20px; background: var(--bg-2); border: 1px solid var(--border); transition: color 0.18s, background 0.18s; }
+        .hero-socials a:hover { color: var(--text); background: var(--border); }
+        .hero-socials svg { width: 13px; height: 13px; fill: currentColor; }
+
+        .nav { background: rgba(255,255,255,0.92); border-bottom: 1px solid var(--border); padding: 0 32px; position: sticky; top: 0; z-index: 100; backdrop-filter: blur(8px); }
+        .nav-inner { max-width: 860px; margin: 0 auto; display: flex; }
+        .nav a { color: var(--text-muted); text-decoration: none; font-size: 0.78em; letter-spacing: 0.8px; text-transform: uppercase; font-weight: 500; padding: 16px 0; margin-right: 32px; border-bottom: 2px solid transparent; transition: color 0.18s, border-color 0.18s; font-family: 'DM Mono', monospace; }
+        .nav a:hover { color: var(--text); }
+        .nav a.active { color: var(--text); border-bottom-color: var(--accent-warm); }
+
+        .container { max-width: 860px; margin: 0 auto; padding: 64px 32px 80px; }
+
+        .page-header { margin-bottom: 56px; }
+        .page-title { font-size: 2em; font-weight: 600; letter-spacing: -0.5px; margin-bottom: 10px; }
+        .page-desc { font-size: 0.9em; color: var(--text-muted); max-width: 540px; line-height: 1.7; }
+        .page-desc a { color: var(--accent-warm); text-decoration: none; }
+
+        h2 { font-family: 'DM Mono', monospace; font-size: 0.67em; text-transform: uppercase; letter-spacing: 2.5px; color: var(--text-dim); font-weight: 400; margin-bottom: 16px; margin-top: 56px; }
+        .section:first-of-type h2 { margin-top: 0; }
+        .divider { width: 100%; height: 1px; background: var(--border); margin-bottom: 4px; }
+
+        .writing-item { padding: 15px 0; border-bottom: 1px solid var(--border); display: flex; align-items: baseline; flex-wrap: wrap; gap: 10px; }
+        .writing-item:first-of-type { border-top: 1px solid var(--border); }
+        .writing-item a { font-size: 0.9em; color: var(--text); text-decoration: none; font-weight: 400; transition: color 0.18s; flex: 1; min-width: 200px; }
+        .writing-item a:hover { color: var(--accent-warm); }
+        .writing-item .tag { font-size: 0.64em; color: var(--text-dim); background: var(--bg-2); border: 1px solid var(--border); padding: 2px 8px; border-radius: 3px; letter-spacing: 0.8px; text-transform: uppercase; font-family: 'DM Mono', monospace; }
+        .writing-item .platform { font-size: 0.64em; color: var(--accent-warm); border: 1px solid rgba(201,125,74,0.3); padding: 2px 8px; border-radius: 3px; letter-spacing: 0.8px; text-transform: uppercase; font-family: 'DM Mono', monospace; }
+        .writing-item .date { font-size: 0.71em; color: var(--text-dim); font-family: 'DM Mono', monospace; }
+        .writing-item .status { font-size: 0.64em; color: #888; font-family: 'DM Mono', monospace; font-style: italic; }
+
+        .platforms-note { margin-top: 40px; padding: 20px 24px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 4px; font-size: 0.83em; color: var(--text-muted); line-height: 1.7; }
+        .platforms-note a { color: var(--accent-warm); text-decoration: none; }
+        .platforms-note strong { color: var(--text); font-weight: 500; }
+
+        @media (max-width: 640px) {
+            .hero { padding: 48px 20px 40px; }
+            .hero-inner { flex-direction: column; gap: 24px; }
+            .hero-text h1 { font-size: 1.8em; }
+            .container { padding: 40px 20px 60px; }
+            .nav { padding: 0 20px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="hero">
+    <div class="hero-inner">
+        <img src="profile.png" alt="Alice Frolov" class="hero-photo">
+        <div class="hero-text">
+            <h1>Alice Frolov</h1>
+            <div class="hero-tagline">Pre-University Biotechnology Student · Aging & Longevity Research</div>
+            <div class="hero-location">Buenos Aires, Argentina</div>
+            <div class="hero-socials">
+                <a href="https://x.com/alicefrolov" target="_blank" rel="noopener">
+                    <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                    @alicefrolov
+                </a>
+                <a href="https://www.linkedin.com/in/alice-frolov-ab11a0395" target="_blank" rel="noopener">
+                    <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                    LinkedIn
+                </a>
+                <a href="https://github.com/alicefrolov" target="_blank" rel="noopener">
+                    <svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+                    GitHub
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="nav">
+    <div class="nav-inner">
+        <a href="index.html">About</a>
+        <a href="writing.html" class="active">Writing</a>
+        <a href="reading.html">Reading</a>
+        <a href="now.html">Now</a>
+    </div>
+</div>
+
+<div class="container">
+
+    <div class="page-header">
+        <div class="page-title">Writing</div>
+        <div class="page-desc">
+            Study notes, exploratory essays, and literature reviews — all part of my preparation for undergraduate research in biotechnology.
+            Works marked "exploratory essay" are personal theoretical inquiry, not peer-reviewed research.
+            Published across <a href="https://substack.com/@alicefrolov" target="_blank" rel="noopener">Substack</a>, 
+            <a href="https://medium.com/@alicefrolov" target="_blank" rel="noopener">Medium</a>, 
+            and <a href="https://alicefrolov.notion.site" target="_blank" rel="noopener">Notion</a>.
+        </div>
+    </div>
+
+    <!-- STUDY NOTES -->
+    <div class="section">
+        <h2>Study Notes — Molecular Biology</h2>
+        <div class="divider"></div>
+
+        <div class="writing-item">
+            <a href="https://alicefrolov.notion.site/MOLECULAR-MECHANISMS-OF-CELLULAR-AGING-AND-REJUVENATION-STRATEGIES-2fdc243936d480348f77fdb023a7e9fa" target="_blank" rel="noopener">Molecular Mechanisms of Cellular Aging — Vol. I: Hallmarks</a>
+            <span class="tag">study notes</span>
+            <span class="platform">Notion</span>
+            <span class="date">Jan 2026</span>
+        </div>
+
+        <div class="writing-item">
+            <a href="https://alicefrolov.notion.site/MOLECULAR-MECHANISMS-OF-CELLULAR-AGING-AND-REJUVENATION-STRATEGIES-2fdc243936d480d09499d21ffc15b7cf" target="_blank" rel="noopener">Molecular Mechanisms of Cellular Aging — Vol. II: Regulation</a>
+            <span class="tag">study notes</span>
+            <span class="platform">Notion</span>
+            <span class="date">Jan 2026</span>
+        </div>
+
+        <div class="writing-item">
+            <a href="https://alicefrolov.notion.site/MOLECULAR-MECHANISMS-OF-CELLULAR-AGING-AND-REJUVENATION-STRATEGIES-2fdc243936d480018ab4d48f103ec198" target="_blank" rel="noopener">Molecular Mechanisms of Cellular Aging — Vol. III: Interventions</a>
+            <span class="tag">study notes</span>
+            <span class="platform">Notion</span>
+            <span class="date">Jan 2026</span>
+        </div>
+
+        <div class="writing-item">
+            <a href="#" style="color: var(--text-dim); pointer-events: none;">Molecular Mechanisms of Cellular Aging — Vol. IV: Therapeutic Strategies</a>
+            <span class="tag">study notes</span>
+            <span class="status">in progress</span>
+        </div>
+    </div>
+
+    <!-- EXPLORATORY ESSAYS -->
+    <div class="section">
+        <h2>Exploratory Essays — Longevity & Consciousness</h2>
+        <div class="divider"></div>
+
+        <div class="writing-item">
+            <a href="https://alicefrolov.notion.site/Treatise-on-Pathways-to-Immortality-2f1c243936d4807bab09dc05941e9ee9" target="_blank" rel="noopener">Pathways to Immortality — Volume I</a>
+            <span class="tag">exploratory essay</span>
+            <span class="platform">Notion</span>
+            <span class="date">Feb 2026</span>
+        </div>
+
+        <div class="writing-item">
+            <a href="https://alicefrolov.notion.site/TREATISE-ON-PATHWAYS-TO-IMMORTALITY-2f7c243936d480c2b7f5ed700071d59b" target="_blank" rel="noopener">Pathways to Immortality — Volume II</a>
+            <span class="tag">exploratory essay</span>
+            <span class="platform">Notion</span>
+            <span class="date">Feb 2026</span>
+        </div>
+
+        <div class="writing-item">
+            <a href="https://alicefrolov.notion.site/Quantum-Theories-of-Consciousness-2f2c243936d4800a846ec55a17a31591" target="_blank" rel="noopener">Quantum Theories of Consciousness</a>
+            <span class="tag">exploratory essay</span>
+            <span class="platform">Notion</span>
+            <span class="date">Feb 2026</span>
+        </div>
+
+        <div class="writing-item">
+            <a href="https://alicefrolov.notion.site/Toward-Cybernetic-Immortality-Physical-Transfer-vs-Mind-Uploading-2f2c243936d48084b374d77a0ebeccd7" target="_blank" rel="noopener">Toward Cybernetic Immortality</a>
+            <span class="tag">exploratory essay</span>
+            <span class="platform">Notion</span>
+            <span class="date">Jan 2026</span>
+        </div>
+    </div>
+
+    <!-- LITERATURE REVIEWS -->
+    <div class="section">
+        <h2>Literature Reviews</h2>
+        <div class="divider"></div>
+
+        <div class="writing-item">
+            <a href="https://alicefrolov.notion.site/Transhumanist-Technologies-Portfolio-of-Alice-Frolov-2f3c243936d480d1814ddf2d6d60ef67" target="_blank" rel="noopener">Transhumanist Technologies: A Review</a>
+            <span class="tag">literature review</span>
+            <span class="platform">Notion</span>
+            <span class="date">Jan 2026</span>
+        </div>
+    </div>
+
+    <!-- SYSTEMS & WELLNESS -->
+    <div class="section">
+        <h2>Systems & Personal Infrastructure</h2>
+        <div class="divider"></div>
+
+        <div class="writing-item">
+            <a href="https://alicefrolov.notion.site/PERSONAL-INFRASTRUCTURE-SYSTEM-2fcc243936d480adb63aef9d3ba2ad27" target="_blank" rel="noopener">Personal Infrastructure System</a>
+            <span class="tag">system design</span>
+            <span class="platform">Notion</span>
+            <span class="date">Feb 2026</span>
+        </div>
+
+        <div class="writing-item">
+            <a href="https://alicefrolov.notion.site/WEEKLY-PHYSIOTHERAPY-MOBILITY-ROUTINE-2fdc243936d480b6a068d763d33fac93" target="_blank" rel="noopener">Weekly Physiotherapy & Mobility Routine</a>
+            <span class="tag">wellness</span>
+            <span class="platform">Notion</span>
+            <span class="date">Feb 2026</span>
+        </div>
+    </div>
+
+    <!-- PLATFORMS NOTE -->
+    <div class="platforms-note">
+        <strong>Where I publish:</strong> Detailed study notes and documents live on 
+        <a href="https://alicefrolov.notion.site" target="_blank" rel="noopener">Notion</a>. 
+        Longer-form essays and columns go to 
+        <a href="https://substack.com/@alicefrolov" target="_blank" rel="noopener">Substack</a>. 
+        Shorter accessible pieces on 
+        <a href="https://medium.com/@alicefrolov" target="_blank" rel="noopener">Medium</a>. 
+        When work is ready for archival, it will be deposited on 
+        <a href="https://zenodo.org" target="_blank" rel="noopener">Zenodo</a> with a DOI.
+    </div>
+
+</div>
+
+</body>
+</html>
