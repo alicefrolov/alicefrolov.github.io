@@ -14,18 +14,20 @@
     <meta property="og:type" content="website">
     <meta property="og:image" content="profile.png">
     
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg: #0a0a0a;
-            --bg-2: #111111;
-            --bg-3: #1a1a1a;
-            --text: #ffffff;
-            --text-muted: #888888;
-            --text-dim: #555555;
-            --accent: #ffffff;
-            --border: #222222;
-            --border-light: #2a2a2a;
+            --bg: #fafaf8;
+            --bg-2: #f4f3f0;
+            --bg-card: #ffffff;
+            --text: #1a1916;
+            --text-muted: #6b6860;
+            --text-dim: #a09d98;
+            --accent: #1a1916;
+            --accent-warm: #c97d4a;
+            --border: #e8e6e1;
+            --border-light: #f0ede8;
+            --shadow: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
         }
 
         * {
@@ -35,16 +37,16 @@
         }
 
         body {
-            font-family: 'Space Grotesk', sans-serif;
+            font-family: 'DM Sans', sans-serif;
             background-color: var(--bg);
             color: var(--text);
-            line-height: 1.6;
+            line-height: 1.65;
             font-weight: 300;
         }
 
         /* ─────────────────────── HERO ─────────────────────── */
         .hero {
-            background: var(--bg);
+            background: var(--bg-card);
             border-bottom: 1px solid var(--border);
             padding: 64px 32px 52px;
         }
@@ -58,44 +60,45 @@
         }
 
         .hero-photo {
-            width: 120px;
-            height: 120px;
+            width: 116px;
+            height: 116px;
             object-fit: cover;
             border-radius: 50%;
-            border: 1px solid var(--border-light);
+            border: 2px solid var(--border);
             flex-shrink: 0;
-            filter: grayscale(100%);
+            filter: grayscale(15%);
+            box-shadow: var(--shadow);
         }
 
         .hero-text h1 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 2.6em;
-            font-weight: 700;
-            letter-spacing: -1.5px;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 2.5em;
+            font-weight: 600;
+            letter-spacing: -1px;
             line-height: 1.1;
-            color: #ffffff;
+            color: var(--text);
         }
 
         .hero-tagline {
-            font-size: 0.88em;
+            font-size: 0.9em;
             color: var(--text-muted);
             font-weight: 400;
             margin-top: 10px;
-            letter-spacing: 0.5px;
+            letter-spacing: 0.1px;
         }
 
         .hero-location {
-            font-size: 0.78em;
+            font-size: 0.76em;
             color: var(--text-dim);
             margin-top: 6px;
             letter-spacing: 0.3px;
-            font-family: 'Space Mono', monospace;
+            font-family: 'DM Mono', monospace;
         }
 
         /* Hero social icons row */
         .hero-socials {
             display: flex;
-            gap: 16px;
+            gap: 6px;
             margin-top: 20px;
             flex-wrap: wrap;
         }
@@ -106,33 +109,37 @@
             gap: 6px;
             color: var(--text-muted);
             text-decoration: none;
-            font-size: 0.78em;
-            letter-spacing: 0.5px;
-            font-family: 'Space Mono', monospace;
-            transition: color 0.2s;
-            padding: 5px 0;
-            border-bottom: 1px solid transparent;
+            font-size: 0.76em;
+            letter-spacing: 0.3px;
+            font-family: 'DM Mono', monospace;
+            transition: color 0.18s, background 0.18s;
+            padding: 5px 10px;
+            border-radius: 20px;
+            background: var(--bg-2);
+            border: 1px solid var(--border);
         }
 
         .hero-socials a:hover {
-            color: #ffffff;
-            border-bottom-color: #ffffff;
+            color: var(--text);
+            background: var(--border);
         }
 
         .hero-socials svg {
-            width: 14px;
-            height: 14px;
+            width: 13px;
+            height: 13px;
             fill: currentColor;
         }
 
         /* ─────────────────────── NAVIGATION ─────────────────── */
         .nav {
-            background: var(--bg);
+            background: var(--bg-card);
             border-bottom: 1px solid var(--border);
             padding: 0 32px;
             position: sticky;
             top: 0;
             z-index: 100;
+            backdrop-filter: blur(8px);
+            background: rgba(255,255,255,0.92);
         }
 
         .nav-inner {
@@ -145,14 +152,14 @@
             color: var(--text-muted);
             text-decoration: none;
             font-size: 0.78em;
-            letter-spacing: 1.5px;
+            letter-spacing: 0.8px;
             text-transform: uppercase;
             font-weight: 500;
             padding: 16px 0;
             margin-right: 32px;
             border-bottom: 2px solid transparent;
-            transition: color 0.2s, border-color 0.2s;
-            font-family: 'Space Mono', monospace;
+            transition: color 0.18s, border-color 0.18s;
+            font-family: 'DM Mono', monospace;
         }
 
         .nav a:hover {
@@ -161,7 +168,7 @@
 
         .nav a.active {
             color: var(--text);
-            border-bottom-color: #ffffff;
+            border-bottom-color: var(--accent-warm);
         }
 
         /* ─────────────────────── BODY ─────────────────────── */
@@ -173,13 +180,13 @@
 
         /* Section headings */
         h2 {
-            font-family: 'Space Mono', monospace;
-            font-size: 0.68em;
+            font-family: 'DM Mono', monospace;
+            font-size: 0.67em;
             text-transform: uppercase;
-            letter-spacing: 3px;
+            letter-spacing: 2.5px;
             color: var(--text-dim);
             font-weight: 400;
-            margin-bottom: 24px;
+            margin-bottom: 20px;
             margin-top: 56px;
         }
 
@@ -198,8 +205,8 @@
         /* Biography */
         .bio-text {
             font-size: 0.93em;
-            color: #cccccc;
-            line-height: 1.85;
+            color: #3d3b37;
+            line-height: 1.88;
             margin-bottom: 14px;
             font-weight: 300;
         }
@@ -218,30 +225,33 @@
         }
 
         .list-unstyled li {
-            margin-bottom: 12px;
-            padding-left: 20px;
+            margin-bottom: 11px;
+            padding-left: 18px;
             position: relative;
             font-size: 0.88em;
-            color: #aaaaaa;
+            color: #4a4844;
+            line-height: 1.6;
         }
 
         .list-unstyled li::before {
             content: "·";
             position: absolute;
             left: 4px;
-            color: #555;
+            color: var(--accent-warm);
             font-weight: 700;
+            font-size: 1.2em;
+            top: -1px;
         }
 
         .list-unstyled li strong {
             font-weight: 500;
-            color: #ffffff;
+            color: var(--text);
         }
 
         /* Writing items */
         .writing-item {
             margin-bottom: 1px;
-            padding: 14px 0;
+            padding: 13px 0;
             border-bottom: 1px solid var(--border);
             display: flex;
             align-items: baseline;
@@ -255,34 +265,35 @@
 
         .writing-item a {
             font-size: 0.88em;
-            color: #dddddd;
+            color: var(--text);
             text-decoration: none;
             font-weight: 400;
-            transition: color 0.2s;
+            transition: color 0.18s;
             flex: 1;
             min-width: 200px;
         }
 
         .writing-item a:hover {
-            color: #ffffff;
+            color: var(--accent-warm);
         }
 
         .writing-item .tag {
             display: inline-block;
-            font-size: 0.65em;
+            font-size: 0.64em;
             color: var(--text-dim);
-            background: var(--bg-3);
-            border: 1px solid var(--border-light);
+            background: var(--bg-2);
+            border: 1px solid var(--border);
             padding: 2px 8px;
-            letter-spacing: 1px;
+            border-radius: 3px;
+            letter-spacing: 0.8px;
             text-transform: uppercase;
-            font-family: 'Space Mono', monospace;
+            font-family: 'DM Mono', monospace;
         }
 
         .writing-item .date {
-            font-size: 0.72em;
+            font-size: 0.71em;
             color: var(--text-dim);
-            font-family: 'Space Mono', monospace;
+            font-family: 'DM Mono', monospace;
         }
 
         /* Profiles */
@@ -306,26 +317,26 @@
         }
 
         .profile-row a {
-            color: #dddddd;
+            color: var(--text);
             text-decoration: none;
             font-weight: 400;
-            transition: color 0.2s;
+            transition: color 0.18s;
         }
 
         .profile-row a:hover {
-            color: #ffffff;
+            color: var(--accent-warm);
         }
 
         .profile-row .label {
             color: var(--text-dim);
-            font-size: 0.78em;
-            font-family: 'Space Mono', monospace;
+            font-size: 0.77em;
+            font-family: 'DM Mono', monospace;
             letter-spacing: 0.3px;
         }
 
         /* Contact / Footer bar */
         .contact-bar {
-            background: var(--bg-2);
+            background: var(--text);
             border-top: 1px solid var(--border);
             padding: 40px 32px;
             margin-top: 80px;
@@ -338,16 +349,16 @@
 
         .contact-label {
             font-size: 0.65em;
-            color: var(--text-dim);
-            letter-spacing: 3px;
+            color: #666;
+            letter-spacing: 2.5px;
             text-transform: uppercase;
-            font-family: 'Space Mono', monospace;
+            font-family: 'DM Mono', monospace;
             margin-bottom: 20px;
         }
 
         .contact-links {
             display: flex;
-            gap: 32px;
+            gap: 28px;
             flex-wrap: wrap;
             margin-bottom: 20px;
         }
@@ -356,11 +367,11 @@
             display: inline-flex;
             align-items: center;
             gap: 7px;
-            color: #aaaaaa;
+            color: #e0ddd8;
             font-size: 0.83em;
             text-decoration: none;
-            letter-spacing: 0.5px;
-            transition: color 0.2s;
+            letter-spacing: 0.3px;
+            transition: color 0.18s;
             font-weight: 400;
         }
 
@@ -382,7 +393,7 @@
         .social-divider {
             width: 100%;
             height: 1px;
-            background: var(--border);
+            background: #2a2825;
             margin: 20px 0;
         }
 
@@ -396,12 +407,12 @@
             display: inline-flex;
             align-items: center;
             gap: 6px;
-            color: var(--text-dim);
-            font-size: 0.75em;
+            color: #666;
+            font-size: 0.74em;
             text-decoration: none;
-            letter-spacing: 0.5px;
-            transition: color 0.2s;
-            font-family: 'Space Mono', monospace;
+            letter-spacing: 0.3px;
+            transition: color 0.18s;
+            font-family: 'DM Mono', monospace;
         }
 
         .social-links a:hover {
@@ -416,24 +427,22 @@
 
         footer {
             text-align: left;
-            margin-top: 40px;
-            padding: 0 32px 48px;
+            padding: 28px 32px 48px;
             max-width: 860px;
-            margin-left: auto;
-            margin-right: auto;
+            margin: 0 auto;
         }
 
         footer .main-line {
-            font-size: 0.72em;
-            color: var(--text-dim);
-            font-family: 'Space Mono', monospace;
-            letter-spacing: 0.5px;
+            font-size: 0.71em;
+            color: #555;
+            font-family: 'DM Mono', monospace;
+            letter-spacing: 0.3px;
             margin-bottom: 8px;
         }
 
         footer .disclaimer {
-            font-size: 0.7em;
-            color: #3a3a3a;
+            font-size: 0.69em;
+            color: #888;
             line-height: 1.7;
             max-width: 680px;
         }
@@ -448,7 +457,7 @@
             .profiles-grid { grid-template-columns: 1fr; }
             .nav { padding: 0 20px; }
             .contact-bar { padding: 32px 20px; }
-            footer { padding: 0 20px 40px; }
+            footer { padding: 24px 20px 40px; }
         }
     </style>
 </head>
