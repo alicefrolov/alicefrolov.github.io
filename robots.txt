@@ -1,1 +1,4 @@
-f
+User-agent: *
+Allow: /
+
+Sitemap: https://alicefrolov.com/sitemap.xml
