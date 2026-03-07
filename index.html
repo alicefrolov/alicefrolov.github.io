@@ -3,29 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#ffffff">
+    <meta name="theme-color" content="#fafafa">
     <link rel="canonical" href="https://alicefrolov.com/">
 
     <title>Alice Frolov — Science Writer</title>
-    <meta name="description" content="Alice Frolov — science writer focused on longevity science, cellular aging, and epigenetic reprogramming. Open-access publications on OSF.">
+    <meta name="description" content="Alice Frolov — science writer focused on longevity science, cellular aging, and epigenetic reprogramming. Open-access publications and scientific illustrations on OSF.">
     <meta name="author" content="Alice Frolov">
     <meta name="robots" content="index, follow">
 
     <!-- Open Graph -->
     <meta property="og:title" content="Alice Frolov — Science Writer">
-    <meta property="og:description" content="Science writer focused on longevity science, cellular aging, and epigenetic reprogramming. Open-access publications on OSF.">
+    <meta property="og:description" content="Science writer focused on longevity science, cellular aging, and epigenetic reprogramming. Open-access publications and scientific illustrations.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://alicefrolov.com">
+    <meta property="og:url" content="https://alicefrolov.com/">
     <meta property="og:image" content="https://alicefrolov.com/og-image.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
-    <meta property="og:image:alt" content="Alice Frolov — Science Writer">
+    <meta property="og:image:alt" content="Alice Frolov — Science Writer & Researcher">
     <meta property="og:locale" content="en_US">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Alice Frolov — Science Writer">
-    <meta name="twitter:description" content="Science writer focused on longevity science, cellular aging, and epigenetic reprogramming.">
+    <meta name="twitter:description" content="Science writer and independent researcher focused on longevity science, cellular aging, and epigenetic reprogramming.">
     <meta name="twitter:site" content="@alicefrolov">
     <meta name="twitter:image" content="https://alicefrolov.com/og-image.png">
 
@@ -55,7 +55,6 @@
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
         html { scroll-behavior: smooth; }
 
-        /* Respect reduced motion preference */
         @media (prefers-reduced-motion: reduce) {
             *, *::before, *::after {
                 animation-duration: 0.01ms !important;
@@ -113,12 +112,6 @@
             height: 100%;
             object-fit: cover;
             display: block;
-        }
-        /* Fallback if photo fails to load */
-        .profile-photo-wrap img[aria-label] {
-            display: flex;
-            align-items: center;
-            justify-content: center;
         }
         .profile-photo-fallback {
             width: 100%;
@@ -255,7 +248,6 @@
         section {
             padding: 52px 0 48px;
             border-bottom: 1px solid var(--line2);
-            /* Animation handled via JS + IntersectionObserver */
             opacity: 0;
             transform: translateY(10px);
             transition: opacity 0.4s ease, transform 0.4s ease;
@@ -289,6 +281,15 @@
         /* =====================
            ABOUT
         ===================== */
+        .about-status {
+            font-family: var(--mono);
+            font-size: 0.58em;
+            color: #bbb;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 22px;
+        }
+
         .hero-layout {
             display: grid;
             grid-template-columns: 1fr 190px;
@@ -316,8 +317,37 @@
         .helix-b { animation: helixPulse 3.2s ease-in-out infinite; animation-delay: 1.6s; }
 
         /* =====================
+           ROLE TAGS
+        ===================== */
+        .role-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 22px;
+        }
+        .role-tag {
+            font-family: var(--mono);
+            font-size: 0.54em;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+            padding: 4px 10px;
+            border: 1px solid var(--line);
+            border-radius: 1px;
+            color: var(--ink3);
+            background: var(--bg1);
+        }
+
+        /* =====================
            PUBLICATIONS
         ===================== */
+        .pub-note {
+            font-family: var(--mono);
+            font-size: 0.58em;
+            color: #ccc;
+            letter-spacing: 0.5px;
+            margin-bottom: 26px;
+        }
+
         .pub-category-label {
             font-family: var(--mono);
             font-size: 0.58em;
@@ -330,6 +360,7 @@
             width: 100%;
             height: 1px;
             background: var(--line);
+            margin-bottom: 0;
         }
         .pub-item {
             padding: 20px 0;
@@ -339,7 +370,7 @@
             gap: 20px;
             align-items: start;
         }
-        .pub-item:last-of-type { border-bottom: none; }
+        .pub-list .pub-item:last-child { border-bottom: none; }
         .pub-title {
             font-size: 1em;
             font-weight: 500;
@@ -432,6 +463,11 @@
             justify-content: space-between;
             gap: 24px;
             flex-wrap: wrap;
+        }
+        .cv-block-inner {
+            display: flex;
+            align-items: center;
+            gap: 18px;
         }
         .cv-icon {
             width: 40px;
@@ -589,7 +625,6 @@
 </head>
 <body>
 
-<!-- Accessibility: skip navigation -->
 <a class="skip-link" href="#main-content">Skip to content</a>
 
 <div class="site">
@@ -611,7 +646,7 @@
     </div>
 
     <div class="sidebar-name">Alice Frolov</div>
-    <div class="sidebar-bio">Writing at the edge of what aging science knows — and imagines.</div>
+    <div class="sidebar-bio">Writing and researching at the edge of what aging science knows — and imagines.</div>
     <div class="sidebar-role">Science Writer<br>Longevity &amp; Aging Biology</div>
 
     <div class="sidebar-divider"></div>
@@ -662,6 +697,7 @@
     <nav class="sidebar-nav" id="sidebar-nav" aria-label="Main navigation">
         <a href="#about" class="active">About</a>
         <a href="#publications">Works</a>
+        <a href="#illustrations">Illustrations</a>
         <a href="#research">Research</a>
         <a href="#cv">CV</a>
         <a href="#contact">Contact</a>
@@ -679,32 +715,71 @@
             <span class="section-number" aria-hidden="true">01</span>
             <span class="section-title" id="about-title">About</span>
         </div>
-        <div style="font-family:'JetBrains Mono',monospace;font-size:0.58em;color:#bbb;letter-spacing:1px;text-transform:uppercase;margin-bottom:22px;">Science Writer · Unaffiliated</div>
+        <div class="about-status">Science Writer · Unaffiliated</div>
+        <div class="role-tags" aria-label="Roles">
+            <span class="role-tag">Science Writing</span>
+            <span class="role-tag">Scientific Illustration</span>
+            <span class="role-tag">Longevity Biology</span>
+        </div>
         <div class="hero-layout">
             <div class="hero-text">
-                <p>I write and research at the intersection of <strong>cellular aging, epigenetic reprogramming, and longevity science</strong> — synthesizing primary literature into structured, open-access publications.</p>
-                <p>My work focuses on the molecular mechanisms that underlie biological aging: senescence, NAD⁺ decline, epigenetic drift, and the emerging science of age reversal. I publish openly through <em>OSF</em> with permanent DOIs, accessible to the global research community.</p>
-                <p>I approach these questions through close reading of primary sources and systematic synthesis — the same rigour expected in academic review, made accessible to a scientific audience.</p>
+                <p>I write, research, and illustrate at the intersection of <strong>cellular aging, epigenetic reprogramming, and longevity science</strong> — synthesizing primary literature into structured, open-access publications.</p>
+                <p>My work spans three modes: <strong>science writing</strong> that translates complex biology for scientific audiences; <strong>independent research</strong> — systematic reviews and analytical essays built from close reading of primary sources; and <strong>scientific illustration</strong>, producing original figures that visualise molecular mechanisms and biological concepts.</p>
+                <p>I publish openly through <em>OSF</em> with permanent DOIs, accessible to the global research community without paywalls.</p>
                 <p>Currently completing secondary school, in preparation for undergraduate studies in biology.</p>
             </div>
             <div class="bio-art" aria-hidden="true">
-                <!-- DNA double helix — viewBox corrected to contain all paths -->
-                <svg viewBox="0 40 200 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!--
+                    Corrected DNA double helix SVG.
+                    Two strands follow opposing sinusoidal paths; base pairs
+                    connect them at evenly spaced intervals.
+                -->
+                <svg viewBox="0 30 200 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Outer reference circle -->
                     <circle cx="100" cy="150" r="96" stroke="#e0e0e0" stroke-width="1"/>
                     <circle cx="100" cy="150" r="78" stroke="#aaa" stroke-width="0.4" opacity="0.2" stroke-dasharray="3 5"/>
-                    <path class="helix-a" d="M62 55 C48 75,72 95,58 115 C44 135,68 155,54 175 C40 195,64 215,50 235" stroke="#444" stroke-width="1.8" stroke-linecap="round"/>
-                    <path class="helix-b" d="M138 55 C152 75,128 95,142 115 C156 135,132 155,146 175 C160 195,136 215,150 235" stroke="#444" stroke-width="1.8" stroke-linecap="round"/>
-                    <g opacity="0.3">
-                        <line x1="62" y1="62"  x2="138" y2="62"  stroke="#555" stroke-width="1.2"/>
-                        <line x1="56" y1="84"  x2="144" y2="84"  stroke="#999" stroke-width="1.2"/>
-                        <line x1="61" y1="106" x2="139" y2="106" stroke="#555" stroke-width="1.2"/>
-                        <line x1="55" y1="128" x2="145" y2="128" stroke="#999" stroke-width="1.2"/>
-                        <line x1="60" y1="150" x2="140" y2="150" stroke="#555" stroke-width="1.2"/>
-                        <line x1="54" y1="172" x2="146" y2="172" stroke="#999" stroke-width="1.2"/>
-                        <line x1="59" y1="194" x2="141" y2="194" stroke="#555" stroke-width="1.2"/>
-                        <line x1="53" y1="216" x2="147" y2="216" stroke="#999" stroke-width="1.2"/>
+
+                    <!--
+                        Strand A: left-to-right sine wave
+                        cx + A·sin(t), cy = y stepping down
+                        Strand B: same wave phase-shifted by π (opposite side)
+                    -->
+                    <!-- Strand A (phase 0) -->
+                    <path class="helix-a"
+                        d="M80,55 C55,70 55,90 80,105
+                           C105,120 105,140 80,155
+                           C55,170 55,190 80,205
+                           C105,220 105,235 80,245"
+                        stroke="#444" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+
+                    <!-- Strand B (phase π — mirror) -->
+                    <path class="helix-b"
+                        d="M120,55 C145,70 145,90 120,105
+                           C95,120 95,140 120,155
+                           C145,170 145,190 120,205
+                           C95,220 95,235 120,245"
+                        stroke="#444" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+
+                    <!-- Base pairs at crossover points (where strands are closest) -->
+                    <g opacity="0.35" stroke-width="1.2">
+                        <!-- pair at y≈55 (both strands start at x=80, x=120) -->
+                        <line x1="80"  y1="55"  x2="120" y2="55"  stroke="#555"/>
+                        <!-- pair at y≈80 (strands cross: both at x=100) -->
+                        <line x1="80"  y1="80"  x2="120" y2="80"  stroke="#999"/>
+                        <!-- pair at y≈105 (both at outer edge again) -->
+                        <line x1="80"  y1="105" x2="120" y2="105" stroke="#555"/>
+                        <line x1="80"  y1="130" x2="120" y2="130" stroke="#999"/>
+                        <line x1="80"  y1="155" x2="120" y2="155" stroke="#555"/>
+                        <line x1="80"  y1="180" x2="120" y2="180" stroke="#999"/>
+                        <line x1="80"  y1="205" x2="120" y2="205" stroke="#555"/>
+                        <line x1="80"  y1="230" x2="120" y2="230" stroke="#999"/>
                     </g>
-                    <text x="100" y="252" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="6" fill="#ccc" letter-spacing="2">DNA · EPIGENOME · ∞</text>
+
+                    <text x="100" y="258" text-anchor="middle"
+                          font-family="JetBrains Mono, monospace"
+                          font-size="6" fill="#ccc" letter-spacing="2">
+                        DNA · EPIGENOME · ∞
+                    </text>
                 </svg>
             </div>
         </div>
@@ -716,57 +791,61 @@
             <span class="section-number" aria-hidden="true">02</span>
             <span class="section-title" id="publications-title">Publications &amp; Works</span>
         </div>
-        <p style="font-family:'JetBrains Mono',monospace;font-size:0.58em;color:#ccc;letter-spacing:0.5px;margin-bottom:26px;">All works are preprints hosted on OSF. Not peer-reviewed.</p>
+        <p class="pub-note">All works are preprints hosted on OSF. Not peer-reviewed.</p>
 
         <div class="pub-category-label">Research Notes</div>
         <div class="pub-category-rule"></div>
 
-        <div class="pub-item">
-            <div>
-                <a href="https://osf.io/dq8pz/overview" target="_blank" rel="noopener noreferrer" class="pub-title">Molecular Mechanisms of Cellular Aging and Rejuvenation Strategies — Vol. I–III</a>
-                <p class="pub-abstract">A three-volume systematic review of the molecular biology of aging: Vol. I covers the 12 hallmarks framework; Vol. II examines regulatory pathways including mTOR, sirtuins, and AMPK; Vol. III surveys current and emerging rejuvenation interventions from senolytics to epigenetic reprogramming.</p>
-                <div class="pub-meta">Alice Frolov · OSF · January 2026 · <a href="https://osf.io/dq8pz/overview" target="_blank" rel="noopener noreferrer">osf.io/dq8pz</a></div>
+        <div class="pub-list">
+            <div class="pub-item">
+                <div>
+                    <a href="https://osf.io/dq8pz/overview" target="_blank" rel="noopener noreferrer" class="pub-title">Molecular Mechanisms of Cellular Aging and Rejuvenation Strategies — Vol. I–III</a>
+                    <p class="pub-abstract">A three-volume systematic review of the molecular biology of aging: Vol. I covers the 12 hallmarks framework; Vol. II examines regulatory pathways including mTOR, sirtuins, and AMPK; Vol. III surveys current and emerging rejuvenation interventions from senolytics to epigenetic reprogramming.</p>
+                    <div class="pub-meta">Alice Frolov · OSF · January 2026 · <a href="https://osf.io/dq8pz/overview" target="_blank" rel="noopener noreferrer">osf.io/dq8pz</a></div>
+                </div>
+                <span class="pub-badge">Open Access</span>
             </div>
-            <span class="pub-badge">Open Access</span>
-        </div>
 
-        <div class="pub-item">
-            <div>
-                <a href="https://osf.io/hybj5/overview" target="_blank" rel="noopener noreferrer" class="pub-title">Transhumanist Technologies: A Review</a>
-                <p class="pub-abstract">A structured literature review of emerging technologies at the frontier of human enhancement — including gene editing, neural interfaces, and life-extension biotechnology — examining their scientific basis and conceptual implications.</p>
-                <div class="pub-meta">Alice Frolov · OSF · January 2026 · <a href="https://osf.io/hybj5/overview" target="_blank" rel="noopener noreferrer">osf.io/hybj5</a></div>
+            <div class="pub-item">
+                <div>
+                    <a href="https://osf.io/hybj5/overview" target="_blank" rel="noopener noreferrer" class="pub-title">Transhumanist Technologies: A Review</a>
+                    <p class="pub-abstract">A structured literature review of emerging technologies at the frontier of human enhancement — including gene editing, neural interfaces, and life-extension biotechnology — examining their scientific basis and conceptual implications.</p>
+                    <div class="pub-meta">Alice Frolov · OSF · January 2026 · <a href="https://osf.io/hybj5/overview" target="_blank" rel="noopener noreferrer">osf.io/hybj5</a></div>
+                </div>
+                <span class="pub-badge">Open Access</span>
             </div>
-            <span class="pub-badge">Open Access</span>
-        </div>
 
-        <div class="pub-item">
-            <div>
-                <a href="https://osf.io/4byqt/overview" target="_blank" rel="noopener noreferrer" class="pub-title">Food Replacement and Nutritional Completeness</a>
-                <p class="pub-abstract">An examination of complete food replacement strategies — analysing nutritional completeness, metabolic implications, and the science behind liquid and solid meal replacement systems.</p>
-                <div class="pub-meta">Alice Frolov · OSF · 2026 · <a href="https://osf.io/4byqt/overview" target="_blank" rel="noopener noreferrer">osf.io/4byqt</a></div>
+            <div class="pub-item">
+                <div>
+                    <a href="https://osf.io/4byqt/overview" target="_blank" rel="noopener noreferrer" class="pub-title">Food Replacement and Nutritional Completeness</a>
+                    <p class="pub-abstract">An examination of complete food replacement strategies — analysing nutritional completeness, metabolic implications, and the science behind liquid and solid meal replacement systems.</p>
+                    <div class="pub-meta">Alice Frolov · OSF · 2026 · <a href="https://osf.io/4byqt/overview" target="_blank" rel="noopener noreferrer">osf.io/4byqt</a></div>
+                </div>
+                <span class="pub-badge">Open Access</span>
             </div>
-            <span class="pub-badge">Open Access</span>
         </div>
 
         <div class="pub-category-label" style="margin-top:34px;">Essays</div>
         <div class="pub-category-rule"></div>
 
-        <div class="pub-item">
-            <div>
-                <a href="https://osf.io/24b6h/overview" target="_blank" rel="noopener noreferrer" class="pub-title">Treatise on Pathways to Immortality — Vol. I &amp; II</a>
-                <p class="pub-abstract">A speculative philosophical inquiry into the theoretical conditions under which biological immortality might be achieved — examining cellular, systemic, and technological pathways and their conceptual limits.</p>
-                <div class="pub-meta">Alice Frolov · OSF · February 2026 · <a href="https://osf.io/24b6h/overview" target="_blank" rel="noopener noreferrer">osf.io/24b6h</a></div>
+        <div class="pub-list">
+            <div class="pub-item">
+                <div>
+                    <a href="https://osf.io/24b6h/overview" target="_blank" rel="noopener noreferrer" class="pub-title">Treatise on Pathways to Immortality — Vol. I &amp; II</a>
+                    <p class="pub-abstract">A speculative philosophical inquiry into the theoretical conditions under which biological immortality might be achieved — examining cellular, systemic, and technological pathways and their conceptual limits.</p>
+                    <div class="pub-meta">Alice Frolov · OSF · February 2026 · <a href="https://osf.io/24b6h/overview" target="_blank" rel="noopener noreferrer">osf.io/24b6h</a></div>
+                </div>
+                <span class="pub-badge">Essay</span>
             </div>
-            <span class="pub-badge">Essay</span>
-        </div>
 
-        <div class="pub-item">
-            <div>
-                <a href="https://osf.io/m2y6v/overview" target="_blank" rel="noopener noreferrer" class="pub-title">Toward Cybernetic Immortality: Physical Transfer vs. Mind Uploading</a>
-                <p class="pub-abstract">An analytical comparison of two theoretical paths to personal continuity beyond biological death: gradual physical substrate replacement versus whole-brain emulation, with attention to identity, consciousness, and technical feasibility.</p>
-                <div class="pub-meta">Alice Frolov · OSF · January 2026 · <a href="https://osf.io/m2y6v/overview" target="_blank" rel="noopener noreferrer">osf.io/m2y6v</a></div>
+            <div class="pub-item">
+                <div>
+                    <a href="https://osf.io/m2y6v/overview" target="_blank" rel="noopener noreferrer" class="pub-title">Toward Cybernetic Immortality: Physical Transfer vs. Mind Uploading</a>
+                    <p class="pub-abstract">An analytical comparison of two theoretical paths to personal continuity beyond biological death: gradual physical substrate replacement versus whole-brain emulation, with attention to identity, consciousness, and technical feasibility.</p>
+                    <div class="pub-meta">Alice Frolov · OSF · January 2026 · <a href="https://osf.io/m2y6v/overview" target="_blank" rel="noopener noreferrer">osf.io/m2y6v</a></div>
+                </div>
+                <span class="pub-badge">Essay</span>
             </div>
-            <span class="pub-badge">Essay</span>
         </div>
 
         <div class="pub-footer">
@@ -774,10 +853,42 @@
         </div>
     </section>
 
-    <!-- 03 · RESEARCH INTERESTS -->
-    <section id="research" aria-labelledby="research-title">
+    <!-- 03 · SCIENTIFIC ILLUSTRATIONS -->
+    <section id="illustrations" aria-labelledby="illustrations-title">
         <div class="section-head">
             <span class="section-number" aria-hidden="true">03</span>
+            <span class="section-title" id="illustrations-title">Scientific Illustrations</span>
+        </div>
+        <p class="pub-note">Original figures produced to accompany research publications and standalone visual essays on aging biology.</p>
+
+        <div class="interests-grid" role="list" style="margin-top: 4px;">
+            <div class="interest-cell" role="listitem">
+                <div class="interest-title">Molecular Diagrams</div>
+                <p class="interest-desc">Pathway illustrations for mTOR, sirtuin networks, and NAD⁺ metabolism — produced as original figures for accompanying publications</p>
+            </div>
+            <div class="interest-cell" role="listitem">
+                <div class="interest-title">Hallmarks Visualisation</div>
+                <p class="interest-desc">Schematic representations of the López-Otín 12-hallmark framework and inter-hallmark relationships</p>
+            </div>
+            <div class="interest-cell" role="listitem">
+                <div class="interest-title">Cell Biology Figures</div>
+                <p class="interest-desc">Visual models of cellular senescence, SASP signalling, and epigenetic drift mechanisms</p>
+            </div>
+            <div class="interest-cell" role="listitem">
+                <div class="interest-title">Conceptual Schematics</div>
+                <p class="interest-desc">Figures for speculative and philosophical works — mind uploading pathways, substrate continuity models</p>
+            </div>
+        </div>
+
+        <div class="pub-footer" style="margin-top: 16px;">
+            Illustrations available within OSF publications → <a href="https://osf.io/profile/5qaxk/" target="_blank" rel="noopener noreferrer">osf.io/profile/5qaxk</a>
+        </div>
+    </section>
+
+    <!-- 04 · RESEARCH INTERESTS -->
+    <section id="research" aria-labelledby="research-title">
+        <div class="section-head">
+            <span class="section-number" aria-hidden="true">04</span>
             <span class="section-title" id="research-title">Research Interests</span>
         </div>
         <div class="interests-grid" role="list">
@@ -808,14 +919,14 @@
         </div>
     </section>
 
-    <!-- 04 · CV -->
+    <!-- 05 · CV -->
     <section id="cv" aria-labelledby="cv-title">
         <div class="section-head">
-            <span class="section-number" aria-hidden="true">04</span>
+            <span class="section-number" aria-hidden="true">05</span>
             <span class="section-title" id="cv-title">Curriculum Vitae</span>
         </div>
         <div class="cv-block">
-            <div style="display:flex;align-items:center;gap:18px;">
+            <div class="cv-block-inner">
                 <div class="cv-icon" aria-hidden="true">
                     <svg width="16" height="20" viewBox="0 0 20 24" fill="none">
                         <rect x="1" y="1" width="18" height="22" rx="1" stroke="#777" stroke-width="1.5"/>
@@ -834,18 +945,17 @@
         </div>
     </section>
 
-    <!-- 05 · CONTACT -->
+    <!-- 06 · CONTACT -->
     <section id="contact" aria-labelledby="contact-title">
         <div class="section-head">
-            <span class="section-number" aria-hidden="true">05</span>
+            <span class="section-number" aria-hidden="true">06</span>
             <span class="section-title" id="contact-title">Contact</span>
         </div>
         <div class="contact-block">
             <div class="contact-text">
-                <p>Open to correspondence on longevity science, epigenetic research, and science writing.</p>
+                <p>Open to correspondence on longevity science, epigenetic research, science writing, and scientific illustration.</p>
                 <p>For collaboration inquiries, peer feedback on preprints, or general questions — write directly.</p>
             </div>
-            <!-- Plain email — no JS obfuscation dependency -->
             <a href="mailto:contact.alicefrolov@gmail.com" class="contact-email">contact.alicefrolov@gmail.com</a>
         </div>
     </section>
@@ -871,7 +981,7 @@
     // ===================================================
     // Active nav: scroll-based via IntersectionObserver
     // ===================================================
-    const sections  = document.querySelectorAll('section[id]');
+    const sections = document.querySelectorAll('section[id]');
     const navLinks  = document.querySelectorAll('#sidebar-nav a');
 
     function setActive(id) {
@@ -880,7 +990,6 @@
         });
     }
 
-    // Highlight nav item when section enters viewport
     const navObserver = new IntersectionObserver(entries => {
         entries.forEach(entry => {
             if (entry.isIntersecting) setActive(entry.target.id);
@@ -890,27 +999,23 @@
     sections.forEach(s => navObserver.observe(s));
 
     // ===================================================
-    // Scroll-triggered section reveal (respects prefers-reduced-motion)
+    // Scroll-triggered section reveal
     // ===================================================
     const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     if (prefersReduced) {
-        // Make all sections immediately visible if motion is reduced
         sections.forEach(s => s.classList.add('is-visible'));
     } else {
         const revealObserver = new IntersectionObserver(entries => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('is-visible');
-                    revealObserver.unobserve(entry.target); // animate once
+                    revealObserver.unobserve(entry.target);
                 }
             });
-        }, { threshold: 0.07 });
+        }, { threshold: 0.08 });
 
-        sections.forEach((s, i) => {
-            s.style.transitionDelay = (i * 0.06) + 's';
-            revealObserver.observe(s);
-        });
+        sections.forEach(s => revealObserver.observe(s));
     }
 </script>
 
